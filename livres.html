@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="app">
+  <meta property="og:url" content="https://google.com/">
+  <link rel="canonical" href="https://google.com/">
+
+  <base href="">
+
+  <link rel="icon" href="favicon.ico">
+
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#3f51b5">
+
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="My App">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="My App">
+
+  <!-- Homescreen icons -->
+  <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
+
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#3f51b5">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+    }
+
+    .tw {
+      background: url("pics/12058209025_b75bf6199c_b.jpg") 0 0 no-repeat;
+      background-size: cover;
+      color: #ffffff;
+      line-height: 30px;
+    }
+
+    .tw [class*="col-"] {
+      padding-left: 30px;
+    }
+
+    .logo {
+      font-size: 38px;
+      font-weight: bold;
+      color: #ffffff;
+      padding: 15px 8px 8px;
+    }
+
+    .pd {
+      padding-top: 20px;
+    }
+
+    .intro {
+      color: #777;
+      text-align: center;
+      padding-top: 20px;
+      font-size: 18px;
+    }
+
+    .col-md-5 .form-group {
+      height: 70px;
+      border: solid 1px transparent;
+      border-radius: 15px;
+      padding: 10px 5px;
+      background-color: rgb(205, 92, 92);
+      font-size: 16px;
+      width: 90%;
+      box-sizing: border-box;
+    }
+
+    #email {
+      max-width: 100% !important
+    }
+
+    .facebook-btn {
+      height: 52px;
+      background: rgb(59, 89, 152) url('http://signin-page.org/images/icons/facebook.png') center left no-repeat;
+      background-size: 30px;
+      color: #fff;
+      font-weight: bold;
+      border: 0px;
+      font-size: 16px;
+    }
+
+    .fb-holder {
+      min-width: 250px !important;
+    }
+
+    .mywells {
+      color: #777;
+      text-align: center;
+      border: 0px;
+    }
+
+    .mywells table {
+      width: 100%;
+      border: 0px;
+      text-align: center;
+
+
+    }
+
+    .mywells td {
+      width: 30%;
+      border: 0px;
+      text-align: center;
+      padding: 6px;
+    }
+
+    .mywells>img:first-child {
+      height: 233px;
+      margin-bottom: 5px;
+    }
+
+    .bio {
+      padding: 40px;
+    }
+
+    @media only screen and (min-width: 992px) {
+      .bio {
+        padding: 20px;
+      }
+    }
+
+    .biodiv {
+      border: solid 1px #666;
+      border-radius: 20px;
+      padding: 40px;
+      color: #555;
+      font-size: 16px;
+      position: relative;
+      text-align: center;
+    }
+
+    .biodiv img {
+      position: absolute;
+      top: -60px;
+      left: 45%;
+      width: 100px;
+    }
+
+    .check {
+      background: url('pics/check.png') no-repeat center left;
+      background-size: 20px;
+      text-indent: 25px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .xmark {
+      background: url('pics/xmark.png') no-repeat center left;
+      background-size: 20px;
+      text-indent: 25px;
+      line-height: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media only screen and (min-width: 992px) {
+
+      .check,
+      .xmark {
+        background-size: 30px;
+        text-indent: 40px;
+        font-size: 18px;
+      }
+    }
+
+    .glyph {
+      font-size: 20px;
+      color: #777777;
+    }
+
+    .bg-grey {
+      background-color: lavender;
+    }
+
+    .roundDivs {
+      border: solid 1px transparent;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 4px;
+    }
+
+    .fb {
+      background: rgb(139, 139, 131) url('pics/facebook.png') no-repeat;
+      background-size: cover;
+    }
+
+    .gm {
+      background: rgb(139, 139, 131) url('pics/linkedin.png') no-repeat;
+      background-size: cover;
+    }
+
+    .tweet {
+      background: rgb(139, 139, 131) url('pics/twitter.png') no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tw">
+    <div class="container-fluid ">
+
+      <div class="row">
+
+        <div class="col-md-3 logo">Coober</div>
+
+        <div class="col-md-6">&nbsp;</div>
+
+        <div class="col-md-3">
+          <br>
+          <button type="button" class="btn btn-default btn-md"
+            style="background-color:rgba(128, 128, 128, 0.8); color:#fff; border:0px; font-size:20px;">&nbsp;Connection&nbsp;</button>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h1><b>We Present the Life of Books</b><br>and let you read in less than 30 minutes</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">
+          <h4>Coober collects and summarizes for you millions of books in the real of <b>business</b> <br>
+            Personal Developent, Social Sciences, History, Society, News, Politics<br>
+            Art, family, Religion, Good Living, Information Technology and the Internet</h4>
+          </p>
+        </div>
+      </div>
+
+      <div class="row ps">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-default btn-md"
+            style="background-color:transparent !important; color: #ffffff;">Watch the video</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2><b>Receive 3 summaries for free:</b></h2>
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-5 col-sm-8">
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <input type="text" id="email" name="email" placeholder="type your email address"
+                class="form-control input-lg" size="50">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-1 col-sm-12">
+          <h3><b>OR</b></h3>
+        </div>
+
+
+        <div class="col-md-2 col-sm-11 col-xs-4 fb-holder">
+          <form class="form-inline" role="form">
+            <div class="form-group"
+              style="border: solid 1px transparent; border-radius:15px; padding:8px; background:rgb(59,89,152); ">
+              <input type="button" id="fb" class="btn btn-lg facebook-btn" value="Join us on Facebook">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-md-4">&nbsp;</div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12"><br></div>
+      </div>
+
+    </div>
+    <!--container-->
+  </div>
+  <!--tw-->
+
+  <div class="container-fluid">
+    <div class="row intro">
+
+      <div class="col-md-4">
+        <svg width="80" height="85">
+          <path d="M 3 0 L 3 50 L 33 25 L 3 0 Z" stroke="#777" stroke-width="3" fill="white"></path>
+          <path d="M 33 0 L 33 50 L 63 25 L 33 0 Z" stroke="#777" stroke-width="3" fill="white"></path>
+          <rect width="10" height="50" x="63" y="0" stroke="#777" stroke-width="3" fill="white"></rect>
+        </svg>
+        <p><b>Read a book in a matter of minutes</b></p>
+        <p>Read a book during a break at work<br>or read moe books during your vacation</p>
+      </div>
+
+      <div class="col-md-4">
+        <svg width="80" height="85">
+          <rect width="50" height="75" x="5" y="2" stroke="#777" stroke-width="3" fill="white"></rect>
+          <line x1="10" y1="10" x2="35" y2="10" stroke="#777" stroke-width="3" fill="white"></line>
+          <line x1="10" y1="22" x2="35" y2="22" stroke="#777" stroke-width="3" fill="white"></line>
+          <line x1="10" y1="34" x2="35" y2="34" stroke="#777" stroke-width="3" fill="white"></line>
+          <line x1="10" y1="46" x2="35" y2="46" stroke="#777" stroke-width="3" fill="white"></line>
+          <line x1="10" y1="59" x2="35" y2="59" stroke="#777" stroke-width="3" fill="white"></line>
+          <path d="M 43 45 L 38 65 L 45 60 L 51 65  L 56 45 Z" stroke="#777" stroke-width="4" fill="white"></path>
+          <path d="M 60 45 L 59 65 L 65 60 L 72 65 L 70 37" stroke="#777" stroke-width="4" fill="white"></path>
+          <circle cx="55" cy="28" r="19" stroke="#777" stroke-width="3" fill="white"></circle>
+          <circle cx="55" cy="28" r="12" stroke="#777" stroke-width="3" fill="white"></circle>
+        </svg>
+        <p><b>Millions of Books to Choose from</b></p>
+        <p>Coober's selection includes millions of books<br>Discover thousand of bestsellers <br>and read them in a
+          compresssed form</p>
+      </div>
+
+      <div class="col-md-4">
+        <svg width="80" height="85">
+          <rect width="70" height="70" x="5" y="2" stroke="#777" stroke-width="3" fill="white"></rect>
+          <line x1="5" y1="25" x2="73" y2="25" stroke="#777" stroke-width="3" fill="white"></line>
+          <rect width="5" height="15" x="10" y="10" stroke="#777" stroke-width="3" fill="white"></rect>
+          <rect width="5" height="15" x="16" y="10" stroke="#777" stroke-width="3" fill="white"></rect>
+          <rect width="5" height="15" x="22" y="10" stroke="#777" stroke-width="3" fill="white"></rect>
+          <rect width="5" height="15" x="28" y="10" stroke="#777" stroke-width="3" fill="white"></rect>
+          <line x1="5" y1="49" x2="73" y2="49" stroke="#777" stroke-width="3" fill="white"></line>
+          <path d="M40 34 L35 49 L40 49 L45 34 L40 34Z" stroke="#777" stroke-width="3" fill="white"></path>
+          <rect width="5" height="15" x="46" y="34" stroke="#777" stroke-width="3" fill="white"></rect>
+          <rect width="5" height="15" x="52" y="34" stroke="#777" stroke-width="3" fill="white"></rect>
+          <rect width="5" height="15" x="60" y="34" stroke="#777" stroke-width="3" fill="white"></rect>
+        </svg>
+        <p><b>A large Selection on various Topics</b></p>
+        <p>Business, Personal Developent, Social Sciences, <br>History, Society, News, Politics<br>
+          Art, family, Religion, Good Living, <br>Information Technology and the Internet</p>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 bg-info" style="min-height:100px; ">
+        <div style="text-align:center; color:#555; font-size:26px; padding-top: 30px;">Discover millions of summarized
+          books, and read as many as you want</div>
+      </div>
+    </div>
+
+
+    <div class="row pd">
+
+      <div class="col-md-3">
+        <div class="well  mywells" style="padding: 0px;">
+          <img src="pics/9855550533_b05d899534_b.jpg" style="max-width:100%; max-height:300px; border:0px;">
+          <p>Coob for<br><b>THe History of Flowers</b><br>By Quentin Jacq</p>
+          <p>
+          <table align="center" valign="center">
+            <tr>
+              <td><span class="glyphicon glyphicon-time glyph"></span></td>
+              <td><span class="glyphicon glyphicon-star-empty glyph"></span></td>
+              <td><span class="glyphicon glyphicon-eye-open glyph"></span></td>
+            </tr>
+            <tr>
+              <td>13 min</td>
+              <td>3/5</td>
+              <td>21</td>
+            </tr>
+          </table>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="well  mywells" style="padding: 0px;">
+          <img src="pics/building.jpg" style="max-width:100%; max-height:300px; border:0px;">
+          <p>Coob for<br><b>Famous Buildings</b><br>By Quentin Jacq</p>
+          <p>
+          <table align="center" valign="center">
+            <tr>
+              <td><span class="glyphicon glyphicon-time glyph"></span></td>
+              <td><span class="glyphicon glyphicon-star-empty glyph"></span></td>
+              <td><span class="glyphicon glyphicon-eye-open glyph"></span></td>
+            </tr>
+            <tr>
+              <td>13 min</td>
+              <td>3/5</td>
+              <td>19</td>
+            </tr>
+          </table>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="well  mywells" style="padding: 0px;">
+          <img src="pics/562627812_dfe28d4488_b.jpg" style="max-width:100%; max-height:300px; border:0px;">
+          <p>Coob for<br><b>Great athletic performances</b><br>By Quentin Jacq</p>
+          <p>
+          <table align="center" valign="center">
+            <tr>
+              <td><span class="glyphicon glyphicon-time glyph"></span></td>
+              <td><span class="glyphicon glyphicon-star-empty glyph"></span></td>
+              <td><span class="glyphicon glyphicon-eye-open glyph"></span></td>
+            </tr>
+            <tr>
+              <td>13 min</td>
+              <td>4/5</td>
+              <td>32</td>
+            </tr>
+          </table>
+          </p>
+        </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <div class="well  mywells" style="padding: 0px;">
+          <img src="pics/11029789_a548a5f02c_o.jpg" style="max-width:100%; max-height:300px; border:0px;">
+          <p>Coob for<br><b>Food and Fine Dining</b><br>By Quentin Jacq</p>
+          <p>
+          <table align="center" valign="center">
+            <tr>
+              <td><img src="pics/clock.png"></td>
+              <td><img src="pics/star.png"></td>
+              <td><img src="pics/eye.png"></td>
+            </tr>
+            <tr>
+              <td>13 min</td>
+              <td>4/5</td>
+              <td>32</td>
+            </tr>
+          </table>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row pd">
+      <div class="col-md-3 ">&nbsp;&nbsp;</div>
+      <div class="col-md-3" style=" text-align:center; padding:6px;">
+        <button type="button" class="btn btn-lg btn-danger active">Discover our Collection</button>&nbsp;&nbsp;
+      </div>
+      <div class="col-md-3" style=" text-align:center; padding:6px;">
+        <button type="button" class="btn btn-lg btn-default" style="border: solid 1px red; margin-right: 10px;">Discover
+          our
+          Services</button>
+      </div>
+      <div class="col-md-3">&nbsp;&nbsp;</div>
+    </div>
+
+
+  </div> <!-- container fluid -->
+
+  <div class="container">
+    <div class="row" style="padding-top:20px;">
+      <div class="col-md-12" style="min-height:100px; ">
+        <div style="text-align:center; color:#555; font-size:26px; font-weight:bold; padding-top: 30px;">Who We are
+        </div>
+      </div>
+    </div>
+
+    <div class="row pd">
+
+      <div class="col-md-6 bio">
+        <div class="biodiv">
+          <img src="pics/missing_photo.png" class="img-circle">
+          <p><b>Martin Daniel</b></p>
+          <p>Serial reader and literature fanatic.<br>Martin is one of the oldest members of our team<br>He works hard
+            to ensure that our collection is up-to-date</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 bio">
+        <div class="biodiv">
+          <img src="pics/missing_photo.png" class="img-circle">
+          <p><b>Erika Shultz</b></p>
+          <p>Serial reader and literature fanatic.<br>Erika is one of the oldest members of our team<br>He works hard to
+            ensure that our collection is up-to-date</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row pd">
+
+      <div class="col-md-6 bio">
+        <div class="biodiv">
+          <img src="pics/missing_photo.png" class="img-circle">
+          <p><b>Danny Erkhard</b></p>
+          <p>Serial reader and literature fanatic.<br>Danny is one of the oldest members of our team<br>He works hard to
+            ensure that our collection is up-to-date</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 bio">
+        <div class="biodiv">
+          <img src="pics/missing_photo.png" class="img-circle">
+          <p><b>Beatrice Shecker</b></p>
+          <p>Serial reader and literature fanatic.<br>Beatrice is one of the oldest members of our team<br>He works hard
+            to ensure that our collection is up-to-date</p>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- container -->
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12 bg-grey">
+        <div style="color: #666; width:100%;" class="text-center">
+          <h2>Our Payment Packages for Services</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pd">
+
+      <div class="col-md-4">
+        <div class="well well-lg"
+          style="border-radius:10px 10px 0 0; background-color:pink; font-size: 24px; color: #666; height:80px; padding-bottom: 0px; margin-bottom:0px;">
+          Free Subcription</div>
+        <div class="well well-lg" style="padding-top: 0px; margin-top: 0px; border-radius: 0px">
+          <ul class="list-unstyled">
+            <li class="check">3 Free Summaries</li>
+            <li class="check">Access to 10% of all Summaries</li>
+            <li class="check">1 month free Access to all</li>
+            <li class="xmark">Advanced service</li>
+            <li class="xmark">Advanced service</li>
+            <li class="xmark">Advanced service</li>
+          </ul>
+        </div>
+        <div class="text-center" style="width:100%; padding:10px;"><button type="button" class="btn btn-lg text-center"
+            style="width:60%; background-color:pink; border-radius: 15px;">Register for free</button></div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="well well-lg bg-info"
+          style="border-radius:10px 10px 0 0; font-size: 24px; background-color: rgb(171, 202, 214); color: #666; height:80px; padding-bottom: 0px; margin-bottom:0px;">
+          Premium 3.99/month</div>
+        <div class="well well-lg" style="padding-top: 0px; margin-top: 0px; border-radius: 0px">
+          <ul class="list-unstyled">
+            <li class="check">3 Free Summaries</li>
+            <li class="check">Access to 10% of all Summaries</li>
+            <li class="check">1 month free Access to all</li>
+            <li class="check">Advanced service</li>
+            <li class="xmark">Advanced service</li>
+            <li class="xmark">Advanced service</li>
+          </ul>
+        </div>
+        <div class="text-center" style="width:100%; padding:10px;"><button type="button" class="btn btn-lg text-center"
+            style="width:60%; background-color: rgb(171, 202, 214); border-radius: 15px;">One Month Free</button></div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="well well-lg bg-warning"
+          style="border-radius:10px 10px 0 0; background-color: rgb(255, 238, 178); font-size: 24px; color: #666; height:80px; padding-bottom: 0px; margin-bottom:0px;">
+          Gold 5.99/month</div>
+        <div class="well well-lg" style="padding-top: 0px; margin-top: 0px; border-radius: 0px">
+          <ul class="list-unstyled">
+            <li class="check">3 Free Summaries</li>
+            <li class="check">Access to 10% of all Summaries</li>
+            <li class="check">1 month free Access to all</li>
+            <li class="check">Advanced service</li>
+            <li class="check">Advanced service</li>
+            <li class="check">Advanced service</li>
+          </ul>
+        </div>
+        <div class="text-center" style="width:100%; padding:10px;"><button type="button" class="btn btn-lg text-center"
+            style="width:60%; background-color: rgb(255, 238, 178); border-radius: 15px;">One Month Free</button></div>
+
+      </div>
+
+    </div>
+
+  </div> <!-- container -->
+
+  <div class="container-fluid  bg-grey">
+
+    <div class="row pd">
+
+      <div class="col-md-4 text-top">
+        <h2>Coober</h2>
+        <br>The biggest library of summarized books
+      </div>
+      <div class="col-md-4">
+        <h4>Contact us and we'll get back to you within 24 hours</h4>
+        <p><span class="glyphicon glyphicon-map-marker"></span> someplace, US</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+      </div>
+
+      <div class="col-md-4">
+        <form role="form">
+          <h4>Contact us</h4>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" id="em" name="em">
+          </div>
+          <br>
+          <div class="form-group">
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" cols="30"
+              rows="5"></textarea>
+          </div>
+          <br>
+          <div class="form-group">
+            <button type="button" class="btn btn-default pull-right">send</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="row pd">
+
+      <div class="col-md-12 ">
+        <div class="row" style="padding-top:20px; border-top: solid 1px #777;">
+          <div class="col-md-5">&nbsp;&nbsp;</div>
+          <div class="col-md-3 text-center">
+            <div class="roundDivs text-center fb"></div>
+            <div class="roundDivs text-center gm"></div>
+            <div class="roundDivs text-center tweet"> </div>
+          </div>
+          <div class="col-md-4">&nbsp;&nbsp;</div>
+        </div>
+      </div>
+
+      <div>
+        <div style="padding: 10px; width: fit-content; text-indent: 20px">
+          @Fani Akritidou 2020 web development
+        </div>
+      </div>
+
+    </div>
+
+  </div> <!-- container -->
+
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Price Calculator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+ 
+		<style>
+		*{box-sizing:border-box;}
+
+		.row:after {
+		content:"";
+		clear:both;
+		display:block;
+		}
+		[class*="col-"]{width:100%;float:left; padding:15px;}
+
+	@media only screen and (min-width:768px){
+	.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+	}
+	label {font-weight:bold;}
+	.result{border-radius:10px; border:solid 1px #333; margin-top:50px;}
+	.result div div:nth-child(2){font-weight:bold;}
+	.result >div >div {display:inline-block}
+	.result >div {padding:6px;}
+	#subTotal{padding-top:20px; border-top:solid 1px #666;}
+	.promo, .book {margin-top: 20px;}
+	.promo input {padding: 10px 4px;}
+
+	input[type=button]{border-radius:5px; border:none;  cursor:pointer; font-size:16px; padding: 12px 8px;}
+
+	 .glyph{font-size:20px; color: #777777;}
+  .bg-grey{background-color: lavender;}
+
+  .roundDivs{
+   border: solid 1px transparent;
+   border-radius:50px;
+   width:50px;
+   height:50px;
+   font-size: 20px;
+   display:inline-block;
+   cursor:pointer;
+   margin-right:4px;
+   }
+
+   .fb {background: rgb(139,139,131) url('pics/facebook.png') no-repeat; background-size: cover;}
+   .gm {background: rgb(139,139,131) url('pics/linkedin.png') no-repeat; background-size: cover;}
+   .tweet{background: rgb(139,139,131) url('pics/twitter.png') no-repeat; background-size: cover;}
+		</style>
+
+		<script>
+		function loader(){
+		document.forms[0].reset();
+		}
+		</script>
+	</head>
+	<body onload="loader();">
+
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cleaning Services</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">	
+
+<div class="row">
+<div class="col-md-12 text-center">
+<h1>VIP Price Calculator</h1>
+</div>
+</div>
+
+	<div class="row">
+
+	<div class="col-9">
+	<form name="calculator" id="calculator" role="form">
+
+	<div class="row">
+	<div class="col-12">
+	<div class="form-group">
+	<label for="service">What Service to you require?</label>
+	<input type="radio" id="basic" name="service" value="10" data-plan="Basic Home Clean"> Basic Home Clean
+     <input type="radio" id="exit" name="service" value="20" data-plan="Exit Clean"> Exit Clean (End of Lease)
+     </div>    
+     </div>
+     </div>
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="stories">How many stories?</label>
+     <input type="radio" id="single" name="stories" value="10" data-plan="Single"> Single
+     <input type="radio" id="double" name="stories" value="20" data-plan="Double"> Double
+      <input type="radio" id="tripple" name="stories" value="30" data-plan="Tripple"> Tripple
+      </div>
+     </div>
+     </div>
+
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="bedrooms">Bedrooms: </label>
+     <input id="bedrooms" name="bedrooms" type="range" max="5" min="1" value="1">
+     </div>
+     </div>
+     </div>
+
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="bathrooms">Bathrooms: </label>
+     <input id="bathrooms" name="bathrooms" type="range" max="3" min="1" value="1">
+     </div>
+     </div>
+     </div>
+
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="wcs">WCs (Toilets): </label>
+     <input id="wcs" name="wcs" type="range" max="4" min="1" value="1">
+     </div>
+     </div>
+     </div>
+
+      <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="theater">Additional Rooms?</label>
+     <input id="theater" name="additional" type="checkbox" value="10" data-plan="Home Theatre"> Home Theatre
+     <input id="study" name="additional" type="checkbox" value="10" data-plan="Study"> Study
+     <input id="games" name="additional" type="checkbox" value="10" data-plan="Games Room"> Games Room
+     <input id="activity" name="additional" type="checkbox" value="10" data-plan="Activity Room"> Activity Room
+     </div>
+     </div>
+     </div>
+
+
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="pets">Pets</label>
+     <input id="pets" name="pets" type="radio" value="10"  data-plan="Yes"> Yes
+     <input id="pets" name="pets" type="radio" value="0"  data-plan="No"> No
+     </div>
+     </div>
+     </div>
+
+
+     <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="oven">Additional Services:</label>
+     <input id="oven" name="plus" type="checkbox" value="10" data-plan="Oven cleaning"> Oven cleaning
+     <input id="walls" name="plus" type="checkbox" value="10" data-plan="Wall Washing"> Wall Washing
+     <input id="windows" name="plus" type="checkbox" value="10" data-plan="Window Cleaning"> Window Cleaning
+     </div>
+     </div>
+     </div>
+
+
+      <div class="row">
+     <div class="col-12">
+     <div class="form-group">
+     <label for="weekly">Frequency of Clean:</label>
+     <input id="weekly" name="frequency" type="radio" value="0" data-discount="10" data-plan="Weekly"> Weekly -10% Discount
+     <input id="bi" name="frequency" type="radio" value="0"  data-discount="7.5" data-plan="Bi-Weekly"> Bi-Weekly - 7.5% Discount
+     <input id="monthly" name="frequency" type="radio" value="0"  data-discount="5" data-plan="Montly"> Montly - 5% Discount
+     </div>
+     </div>
+     </div>
+
+	 </form>
+	</div>
+
+	<div class="col-3">
+
+	<div class="row">
+	<div  class="col-12 result">
+
+	<div id="Mservice"><span class="glyphicon glyphicon-wrench"></span> Service: <div></div> </div>
+	<div id="Mstories"><span class="glyphicon glyphicon-home"></span> Story: <div></div></div>
+	<div id="Mbedrooms"><span class="glyphicon glyphicon-bed"></span> Bedrooms: <div>1</div></div>
+	<div id="Mbathrooms"><span class="glyphicon glyphicon-user"></span> Bathrooms: <div>1</div></div>
+	<div id="Mwcs"><span class="glyphicon glyphicon-exclamation-sign"></span> WCs (toilets): <div>1</div></div>
+	<div id="Madditional"><span class="glyphicon glyphicon-option-horizontal"></span> Additional: <div></div> </div>
+	<div id="Mpets"><span class="glyphicon glyphicon-heart"></span> Pets: <div></div></div>
+	<div id="Mplus"><span class="glyphicon glyphicon-plus"></span> Plus: <div></div></div>
+	<div id="Mfrequency"><span class="glyphicon glyphicon-calendar"></span> Frequency: <div></div></div>
+	<div id="subTotal">Subtotal: <div></div> </div>
+	<div id="Discount"><span class="glyphicon glyphicon-minus"></span> Discount: <div></div> </div>
+	<div id="Total"><span class="glyphicon glyphicon-usd"></span> Total: <div></div></div>
+
+	<div  class="promo"><input type="text" placeholder="Promo Code" size="20"><input type="button" class="btn btn-warning" value="apply"></div>
+	<div  class="book"><input type="button" class="btn btn-success" value="Book Now"></div>
+	</div>
+	</div>
+
+	</div>
+
+
+	</div>
+	</div><!-- container -->
+
+<div class="container-fluid  bg-grey">
+
+<div class="row">
+
+<div class="col-4 text-top">
+<h2>Home</h2>
+<br>Cleaning Services
+</div>
+
+<div class="col-4">
+ <h4>Contact us and we'll get back to you within 24 hours</h4>
+      <p><span class="glyphicon glyphicon-map-marker"></span> someplace, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+</div>
+
+<div class="col-4">
+<form  role="form">
+<h4>Contact us</h4>
+<div class="form-group">
+<input type="text" class="form-control" id="name" name="name" placeholder="Name">
+</div>
+<div class="form-group">
+<input type="email" class="form-control" placeholder="Email" id="em" name="em" >
+</div>
+<br>
+<div class="form-group">
+<textarea class="form-control" id="comments" name="comments" placeholder="Comment" cols="30" rows="5"></textarea>
+</div>
+<br>
+<div class="form-group">
+<button type="button"  class="btn btn-default pull-right">send</button>
+</div>
+</form>
+</div>
+
+</div>
+
+</div> <!-- container -->
+
+
+
+	<script>
+var x=document.forms[0].elements.length;
+var tot;
+
+	for (var i=0; i<x; i++){
+	if (i<5|| i>7){
+	document.forms[0].elements[i].addEventListener("click", function(){
+
+
+	var name=this.getAttribute("name");
+
+	if(name=="additional" || name=="plus")
+	{
+	if(this.checked){/////clicks to check
+	if(document.getElementById("M"+name).children[1].innerHTML.length>0)
+   document.getElementById("M"+name).children[1].innerHTML+=", "+this.getAttribute("data-plan");
+   else
+   document.getElementById("M"+name).children[1].innerHTML=this.getAttribute("data-plan");
+   }
+   else {///////////clicks to uncheck
+	var newsel=document.getElementById("M"+name).children[1].innerHTML.replace(this.getAttribute("data-plan"), "");
+
+	document.getElementById("M"+name).children[1].innerHTML=newsel;
+	}
+   }
+   else
+	document.getElementById("M"+name).children[1].innerHTML=this.getAttribute("data-plan");
+
+	if (name=="frequency")
+	document.getElementById("Discount").children[1].innerHTML=this.getAttribute("data-discount");
+
+
+
+
+	var x=document.forms[0].elements.length;
+	 tot=0;
+	
+	for(var a=0; a<x; a++){
+
+	if (a<5|| a>7){
+	if(document.forms[0].elements[a].checked){
+
+	tot+=Number(document.forms[0].elements[a].value);
+      }
+      }
+      else
+      tot+=Number(document.forms[0].elements[a].value)*10;
+
+      document.getElementById("subTotal").children[0].innerHTML=tot;
+	if(document.getElementById("Discount").children[1].innerHTML.length>0)
+	document.getElementById("Total").children[1].innerHTML=tot-(tot*(Number(document.getElementById("Discount").children[1].innerHTML)/100));
+	else
+	document.getElementById("Total").children[1].innerHTML=tot;
+	}
+	});
+	} 
+	else if (i>=5 && i<8){
+	document.forms[0].elements[i].addEventListener("change",function(){
+	var name=this.getAttribute("name");
+	 document.getElementById("M"+name).children[1].innerHTML=this.value;
+	 tot=0;
+	 for(var a=0; a<x; a++){
+
+	if (a<5|| a>7){
+	if(document.forms[0].elements[a].checked){
+
+	tot+=Number(document.forms[0].elements[a].value);
+      }
+      }
+      else
+      tot+=Number(document.forms[0].elements[a].value)*10;
+
+      document.getElementById("subTotal").children[0].innerHTML=tot;
+	if(document.getElementById("Discount").children[1].innerHTML.length>0)
+	document.getElementById("Total").children[1].innerHTML=tot-(tot*(Number(document.getElementById("Discount").children[1].innerHTML)/100));
+	else
+	document.getElementById("Total").children[1].innerHTML=tot;
+	}
+	});
+	}
+
+	}
+		</script>
+	</body>
+</html>

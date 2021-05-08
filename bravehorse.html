@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Brave Horse</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="app">
+  <meta property="og:url" content="https://google.com/">
+  <link rel="canonical" href="https://google.com/">
+
+  <base href="">
+
+  <link rel="icon" href="favicon.ico">
+
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#3f51b5">
+
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="My App">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="My App">
+
+  <!-- Homescreen icons -->
+  <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
+
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#3f51b5">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <style>
+    body {
+      color: #444;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    [class*="col-"] {
+      padding: 15px;
+      width: 100%;
+      float: left;
+    }
+
+    .wrapper {
+      display: none;
+    }
+
+
+    ul {
+      list-style-type: none;
+    }
+
+    .mobile-header li {
+      display: inline-block;
+      padding: 15px;
+    }
+
+    .dropdown {
+      position: relative;
+      border: solid 1px #ccc;
+    }
+
+    #menubox {
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: -20px;
+      min-width: 160px;
+      background-color: white;
+      z-index: 100;
+      border: solid 1px #ccc;
+    }
+
+    #menubox li {
+      display: block !important;
+      padding: 4px !important;
+    }
+
+    #menubox a {
+      text-decoration: none;
+      color: #666;
+    }
+
+    .dropdown:hover #menubox {
+      display: block;
+    }
+
+    @media only screen and (min-width:768px) {
+      .col-1 {
+        width: 8.33%;
+      }
+
+      .col-2 {
+        width: 16.66%;
+      }
+
+      .col-3 {
+        width: 25%;
+      }
+
+      .col-4 {
+        width: 33.33%;
+      }
+
+      .col-5 {
+        width: 41.66%;
+      }
+
+      .col-6 {
+        width: 50%;
+      }
+
+      .col-7 {
+        width: 58.33%;
+      }
+
+      .col-8 {
+        width: 66.66%;
+      }
+
+      .col-9 {
+        width: 75%;
+      }
+
+      .col-10 {
+        width: 83.33%;
+      }
+
+      .col-11 {
+        width: 91.66%;
+      }
+
+      .col-12 {
+        width: 100%;
+      }
+
+      .wrapper {
+        display: block;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        background-color: transparent;
+        z-index: 15;
+        height: 170px;
+      }
+
+      .mobile-header {
+        display: none;
+      }
+    }
+
+
+    .header {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+      -webkit-align-items: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      background-color: #FFF;
+    }
+
+
+    .categories ul {
+      list-style-type: none;
+    }
+
+    .categories ul li {
+      display: inline;
+      padding: 15px;
+    }
+
+    .categories ul li a {
+      text-decoration: none;
+      color: #444;
+    }
+
+    .categories ul li a:hover {
+      background-color: #F5F5F5;
+      color: #337ab7;
+    }
+
+    .no-show {
+      text-decoration: none;
+    }
+
+    .register {
+      height: 60px;
+      width: 100%;
+      background-color: #FFF;
+      text-align: right;
+    }
+
+    input[type=button] {
+      background-color: #F6F6F6;
+      text-transform: uppercase;
+      height: 40px;
+      padding: 10px 16px;
+      margin: 8px 30px;
+      border: solid 1px #333;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center
+    }
+
+    .main {
+      background: url('pics/horses.jpg') no-repeat 0 -200px;
+      background-size: cover;
+      text-align: center;
+      max-height: 800px;
+    }
+
+    .main p {
+      color: #FFF;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding-top: 25%;
+      text-align: center;
+      font-family: Georgia;
+      letter-spacing: 4px;
+    }
+
+    #reg {
+      border: solid 1px #ccc;
+      border-radius: 4px;
+      width: 180px;
+      height: 50px;
+      text-transform: uppercase;
+      color: white;
+      font-size: 16px;
+      background-color: rgba(95, 126, 193, 0.7);
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .content {
+      color: #666;
+      line-height: 25px;
+      text-align: justify;
+    }
+
+    #reg2 {
+      border-radius: 6px;
+      border: none;
+      padding: 14px 20px;
+      margin: 8px 0;
+      height: 50px;
+      color: #F3F3F3;
+      font-weight: 500;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #428bca;
+      font-family: Arial;
+      width: 200px;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+      font-family: Times New Roman;
+      border-top: solid 1px #ccc;
+      width: 100%;
+      background-color: white;
+    }
+
+    .footer [class*="col-"] {
+      padding: 0px !important;
+    }
+
+    /* Add animation (Chrome, Safari, Opera) */
+    @-webkit-keyframes example {
+      from {
+        top: -100px;
+        opacity: 0;
+      }
+
+      to {
+        top: 0px;
+        opacity: 1;
+      }
+    }
+
+    /* Add animation (Standard syntax) */
+    @keyframes example {
+      from {
+        top: -100px;
+        opacity: 0;
+      }
+
+      to {
+        top: 0px;
+        opacity: 1;
+      }
+    }
+
+    /* The modal's background */
+    .modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Display the modal when targeted */
+    .modal:target {
+      display: table;
+      position: absolute;
+    }
+
+    /* The modal box */
+    .modal-dialog {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    /* The modal's content */
+    .modal-dialog .modal-content {
+      margin: auto;
+      background-color: #f3f3f3;
+      position: relative;
+      padding: 0;
+      outline: 0;
+      border: 1px #777 solid;
+      text-align: justify;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+      /* Add animation */
+      -webkit-animation-name: example;
+      /* Chrome, Safari, Opera */
+      -webkit-animation-duration: 0.5s;
+      /* Chrome, Safari, Opera */
+      animation-name: example;
+      animation-duration: 0.5s;
+    }
+
+    /* The button used to close the modal */
+    .closebtn {
+      text-decoration: none;
+      float: right;
+      font-size: 35px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .closebtn:hover,
+    .closebtn:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+
+    header {
+      background-color: #5cb85c;
+      font-size: 25px;
+      color: white;
+    }
+
+    footer {
+      background-color: #5cb85c;
+      font-size: 20px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row mobile-header">
+    <div class="col-12">
+
+      <ul>
+        <li>
+          <h2>LOGO</h2>
+        </li>
+        <li class="dropdown">
+          <h3>Menu</h3>
+          <div id="menubox">
+            <ul>
+              <li><a href="javascript:void(0);">Welcome</a></li>
+              <li><a href="javascript:void(0);">About Us</a></li>
+              <li><a href="javascript:void(0);">Programs</a></li>
+              <li><a href="javascript:void(0);">Connect with us</a></li>
+              <li><a href="javascript:void(0);">Blog</a></li>
+              <li><a href="javascript:void(0);">FAQ</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrapper">
+
+
+    <div class="register">
+      <a class="no-show" href="#id01"><input type="button" value="register now"></a>
+    </div>
+
+    <div class="header">
+
+      <div class="categories">
+        <ul>
+          <li><a href="javascript:void(0);">Welcome</a></li>
+          <li><a href="javascript:void(0);">About Us</a></li>
+          <li><a href="javascript:void(0);">Programs</a></li>
+        </ul>
+      </div>
+
+      <div class="categories">
+        <ul>
+          <li class="logo">MY LOGO</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+        </ul>
+      </div>
+
+      <div class="categories">
+        <ul>
+          <li><a href="javascript:void(0);">Connect with us</a></li>
+          <li><a href="javascript:void(0);">Blog</a></li>
+          <li><a href="javascript:void(0);">FAQ</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div style="width:100%; padding:0px; height:50px;">
+      <svg style="width:100%; height:100%; display:block;" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 L50,100 L100,0" fill="white" stroke="#777" stroke-width="1" vector-effect="non-scaling-stroke">
+        </path>
+      </svg>
+    </div>
+
+  </div>
+
+  <div class="row ">
+    <div class="col-12 main">
+      <p>
+        <font style="font-size: 48px; color:white;">inspiring change</font>
+        <hr width="500">
+        <font style="font-size: 32px; color:white;">equine assisted learning</font><br><br><br><br><a class="no-show"
+          href="#id01"><button id="reg">Register Now</button></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-2">&nbsp;</div>
+    <div class="col-4">
+      <ul style="list-style-type:none; line-height:25px;">
+        <li>
+          <h2>do you ever...</h2>
+        </li>
+        <li>Feel judged</li>
+        <li>Live in the past or future</li>
+        <li>Feel stuck or fear</li>
+        <li>Feel invisible</li>
+        <li>Feel intention</li>
+        <li>Have self doubt</li>
+      </ul>
+    </div>
+    <div class="col-2">&nbsp;</div>
+    <div class="col-4">
+
+      <ul style="list-style-type:none; line-height:25px;">
+        <li>
+          <h2>horses will...</h2>
+        </li>
+        <li>Never judge</li>
+        <li>Show you how to be in the moment</li>
+        <li>Demand leadership</li>
+        <li>Make you step up into your role</li>
+        <li>Respond to stimulus</li>
+        <li>Always be honest and direct</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row " style="background-color:#F5F5F5">
+    <div class="col-12" style="text-align:center;">
+      <h2>Guess What?</h2>
+      You are right where you're supposed to be. In this moment, you are ready to be brave.<br>You are ready to be
+      you.<br><br>That is why you are here.<br><br>Welcome to Brave Horse, where the horses are the teachers. If you are
+      ready for a<br>profound, life changing experience, you have come to the right place.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-2 content">&nbsp;</div>
+    <div class="col-6 content">
+      <h3>what is eal?</h3>
+      Equine assisted learning is your own journey. It belongs to you. it is
+      <br>where the horse will teach you more about yoursef- if you are
+      <br>willing. The horse know what you need. Equine assisted learning is <br>free from judgements and expectations.
+      <br>All that is required from you is that you allow yourself to simply be, to simply experience, to<br>
+      simply listen to the horse. You will take away from this experience<br>what you need to.
+    </div>
+    <div class="col-3"><img src="pics/horses.jpg" style="max-width:100%; height:300px;"></div>
+    <div class="col-1 content">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-2 content">&nbsp;</div>
+    <div class="col-6 content">
+      <h3>why horses</h3>
+      When I think of horses, two words come to mind: resilient and<br>
+      wholehearted. Through history, beside every foot print made by man<br>
+      there has also been a hoof pring. The horses' story has always been<br>
+      entwined with ours. They are the true pioneers - event today, when<br>
+      horses are no longer a necessity to survival, they still have a purpose<br>
+      here. They still belong.
+    </div>
+    <div class="col-3"><img src="pics/horses.jpg" style="max-width:100%; height:300px;"></div>
+    <div class="col-1 content">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 content" style="text-align:center;"><a class="no-show" href="#id01"><button id="reg2">register
+          now</button></a></div>
+  </div>
+
+  <div class="row footer">
+    <div class="col-1">&nbsp;</div>
+
+    <div class="col-3">
+      <ul style="list-style-type:none; color:#777;">
+        <li>Brave Horse</li>
+        <li>Equine Horse learing</li>
+        <li>Armstrong, BC</li>
+        <li>210-234-4567</li>
+        <li>info@</li>
+      </ul>
+    </div>
+
+    <div class="col-1">&nbsp;</div>
+
+    <div class="col-3">
+      <ul style="list-style-type:none; color:#777; text-align:justify; margin-left:20px;">
+        <li>Welcome</li>
+        <li>About us</li>
+        <li>Programs</li>
+        <li>Connect With Us</li>
+        <li>Register</li>
+        <li>Blog</li>
+        <li>FAQ</li>
+      </ul>
+    </div>
+    <div class="col-2">&nbsp;</div>
+    <div class="col-2">
+      <ul style="list-style-type:none; color:#777; ">
+        <li>@2016 Fani Akritidou - Portfolio</li>
+        <li>All rights reserved</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div id="id01" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <header class="container">
+          <a href="#" class="closebtn">×</a>
+          <h2>Popup Header</h2>
+        </header>
+        <div class="container">
+          <p>Form Fields in the Popup.</p>
+          <p>Form Fields in the Popup.</p>
+        </div>
+        <footer class="container">
+          <p>Popup footer</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
