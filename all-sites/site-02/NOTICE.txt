@@ -1,0 +1,39 @@
+NOTICE
+
+This software incorporates and licenses existing open source software from 
+other project(s) (collectively, “Third Party Code”). This is the NOTICE.txt file 
+required by Third Party Code.  Hostbin, LLC is not the original author of 
+any Third Party Code. 
+
+The Third Party Code is licensed to you under their original license terms 
+set forth below. The full texts of any license, if not reproduced in entirety
+in this file, are available at the URL provided.
+
+THIRD PARTY CODE: LICENSES
+
+#####################################################################
+
+"One Page Starter Plus" (theme)
+ *  Released under the Apache license
+ *  Copyright elkind.net and forbetterweb.com
+ *  http://www.apache.org/licenses/LICENSE-2.0
+
+Original Code can be found at
+ *  http://forbetterweb.com/htmlandbootstrap/one-page-starter-plus-html-bootstrap/
+
+NOTE: Original Code has been modified; Modified Code Copyright 2016 Hostbin, LLC
+
+#####################################################################
+
+JAVASCRIPT NUMBER FORMAT
+ *  Released into the public domain
+ *  http://www.mredkj.com/
+
+#####################################################################
+
+JQUERY
+ *  Copyright jQuery Foundation and other contributors
+ *  Released under the MIT license
+ *  https://jquery.org/license
+
+#####################################################################

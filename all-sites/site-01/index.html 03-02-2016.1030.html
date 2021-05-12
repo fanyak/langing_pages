@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/*                                                                                                                                             */
+/*                                                    Copyright (C) 2015-2016 hōstbin LLC                                                      */
+/*                                                          All Rights Reserved                                                                */
+/*                                                           http://hostbin.co                                                                 */
+/*                                                                                                                                             */
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+</script>
+
+  <!-- jQuery load 1st = avoid "Uncaught Reference Error: $ is undefined."
+  ================================================== -->
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/bootstrap-toolkit.js"></script> 
+
+  <!-- NO JAVASCRIPT Redirect
+  ================================================== -->
+  <noscript>
+  <meta http-equiv="refresh" content="0; url=no_js.html" />
+  </noscript>
+
+  <head>
+  
+  <!-- isMobile -->
+  <script>
+  function output_referer() {
+    var d = document,
+        URL_referer = d.referrer;
+        //output = d.getElementById("demo_output");
+    if (!URL_referer) { // if empty
+      console.log('STATUS: No ref = direct visit'); 
+      //output.value = "Empty: either you directly typed the URL or coming from a bookmark.";
+      //output.style.color = "#888";
+      } else { // if there's something in it
+      console.log('STATUS: Not direct = referrer = ' + URL_referer); 
+      //output.value = URL_referer;
+      } 
+  };
+
+  output_referer();
+
+  var URL_referer = document.referrer;
+  console.log('STATUS: Document location = ' + document.location); 
+
+// **********************************************************************
+// jQuery detect viewport
+// REF https://github.com/maciej-gurban/responsive-bootstrap-toolkit
+(function($, viewport){
+    $(document).ready(function() {
+
+    var MOBILE_SITE = '/mobile/index.html', // site to redirect to
+        NO_REDIRECT = 'noredirect'; // cookie to prevent redirect
+
+        // Executes only in breakpoint
+        if(viewport.is('xs')) {
+            // ...
+            console.log('STATUS: VIEWPORT = XS'); 
+            $('#contact-section').addClass('text-center');
+            $('#reviews-section').addClass('text-center');
+            $('#home').load('/mobile/index.html');
+            // NOTE 1: Design fail = Modal pushed transpox for XS only (Bootstrap bug?)
+         }
+
+        // Executes only in breakpoint
+        if(viewport.is('sm')) {
+            // ...
+            console.log('STATUS: VIEWPORT = SM'); 
+            $('#contact-section').addClass('text-center');
+            $('#reviews-section').addClass('text-center');
+            $('#home').load('/mobile/index.html');
+        }
+
+        // Executes only in breakpoint
+        if(viewport.is('md')) {
+            // ...
+            console.log('STATUS: VIEWPORT = MD'); 
+        }
+
+        // Executes only in breakpoint
+        if(viewport.is('lg')) {
+            // ...
+            console.log('STATUS: VIEWPORT = LG'); 
+        }
+
+    });
+})(jQuery, ResponsiveBootstrapToolkit);
+
+// **********************************************************************
+</script>
+
+
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Your Company Name</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <!-- SEO = Marketing Required 
+    ================================================== -->
+    <meta name="description" content="TO CHANGE = Your SEO Description">
+    <meta name="keywords" content="TO CHANGE = Your SEO Keywords">
+    <meta name="author" content="TO CHANGE = Your Company Name">>
+
+    <!-- Favicons = Missing a few
+    ================================================== -->
+	<link rel="icon" type="image/png" href="img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!-- Bootstrap -->
+    <link async href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link async href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet"/>
+	<link href="css/h.style.css" rel="stylesheet"/>
+</head>
+
+<body class="landing-page">
+
+<nav class="navbar navbar-transparent navbar-top" role="navigation">
+    <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <a href="http://codedesign.elkind.net/">
+                   <div class="logo-container">
+                        <div class="logo">
+                            <!-- you logо img -->
+                        </div>
+                        <div class="brand">
+                         Your Company Name
+                        </div>
+                    </div>
+              </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="example" >
+      <ul class="nav navbar-nav navbar-right">
+
+              <li>
+                  <a href="#">
+                      Home
+                  </a>
+              </li>
+              <li>
+                  <a href="#contact-section">
+                      Contact
+                  </a>
+              </li>
+              <li>
+                  <a href="#reviews-section">
+                      Reviews
+                  </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/"> 
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+            </li>
+             <li>
+                <a href="https://twitter.com/?lang=en"> 
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+              <li>
+                <a href="https://pinterest.com/"> 
+                    <i class="fa fa-pinterest"></i>
+                </a>
+            </li>
+       </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+    <div class="parallax filter-gradient blue" data-color="blue">
+        <div class="parallax-background">
+            <img src="img/landing-page-1/bg.jpg">
+        </div>
+        <div class= "container"> 
+            <div class="row">
+                <div class="col-sm-5 hidden-xs">
+                    <div class="parallax-image">
+                        <img src="img/landing-page-1/iphone.png"/>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-offset-1">
+                    <div class="description">
+                        <h2>Basic Landing Page</h2>
+                        <br>
+                        <h5>Be amazed by a good looking landing page with clear visuals, light colours & beautifully aligned elements! 
+                        A short description of the products or services you sell, goes here.</h5>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://www.apple.com/">
+                            <button class="btn btn-neutral btn-lg">
+                                <i class="fa fa-lg fa-apple"></i> 
+                            </button>
+                        </a>
+                        <a href="https://www.android.com/">
+                            <button class="btn btn-simple btn-neutral">
+                                <i class="fa fa-lg fa-android"></i>
+                            </button>
+                        </a>
+                        <a href="http://www.microsoft.com/en-in/windows">
+                            <button class="btn btn-simple btn-neutral">
+                                <i class="fa fa-lg fa-windows"></i>
+                            </button>
+                        </a>
+						<div class="fixed-plugin">
+    <div class="dropdown open">
+      <a href="#" data-toggle="dropdown"> 
+        <i class="fa fa-cog fa-spin fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <h6 class="text-center">Choose Style</h6>
+            <li>
+                <a href="javascript:void(0)" class="selector" data-color="gray" data-button="default">
+                    <div style="border-radius:50%; background: #777; width:50px; height: 50px; margin: 5px auto;;"></div>
+                </a>
+            </li>
+            <li class="active">
+                <a href="javascript:void(0)" class="selector" data-color="blue" data-button="info">
+                    <div style="border-radius:50%; background: #2ca8ff; width:50px; height: 50px;margin: 5px  auto;"></div>
+                 </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="selector" data-color="green" data-button="success">
+                    <div style="border-radius:50%; background: #3ABE41; width:50px; height: 50px;margin: 5px  auto;"></div>
+                </a>
+            </li>
+             <li>
+                <a href="javascript:void(0)" class="selector" data-color="orange" data-button="warning">
+                    <div style="border-radius:50%; background: #FFA17F; width:50px; height: 50px;margin: 5px  auto;"></div>
+                </a>
+            </li>
+              <li>
+                <a href="javascript:void(0)" class="selector" data-color="red" data-button="danger">
+                    <div style="border-radius:50%; background: #cc0000; width:50px; height: 50px;margin: 5px  auto;"></div>
+                </a>
+            </li>
+        
+      </ul>
+    </div>
+ </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    
+    <div class="section section-presentation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="description">
+                            <h4 class="header-text">Your new site... It's beautiful !</h4>
+                            <p>And your business is social, easy-to-use and vital to your customers. This is the place to list all the good things you want to share.
+                            <ul style="font-size: 18px;">
+                            <li> Grow your business </li>
+                            <li> Save time & money </li>
+                            <li> etc. </li>
+                            </ul> 
+                            <p>Try to make it very clear to the people browsing this page, all the benefits, the users will receive. </p>
+                            <p><small><small>NOTE: Top left is visual indicator for responsive feature of landing page. Change browser size 
+                            to see page design respond to different formats/devices.</small></small></p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1 hidden-xs">
+                    <img src="img/landing-page-1/mac2.jpg"/>
+                </div>
+            </div>
+        </div>
+    </div> 
+   
+    <div class="section section-features section-no-padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 grayblock2">
+                    <div class="card card-blue">
+                        <div class="icon">
+                            <i class="fa fa-cloud-upload"></i>
+                        </div>
+                        <div class="text">
+                            <h4>On the Cloud</h4>
+                            <p>Your site and all supporting services are hosted on Google's Cloud Platform and serviced by professionals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 grayblock">
+                    <div class="card card-blue">
+                        <div class="icon">
+                            <i class="fa fa-refresh"></i>
+                        </div>
+                        <h4>Smart Sync</h4>
+                        <p>All customer feedback is recorded and can sync with your GMail or Google Sheets; it is always up to date from any device.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 grayblock2">
+                    <div class="card card-blue">                    
+                        <div class="icon">
+                            <i class="fa fa-line-chart"></i>
+                        </div>
+                        <h4>Grow your business</h4>
+                        <p>Track site usage and run your business on the go, using a smart funnel features.</p>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-testimonial" id="reviews-section">
+        <div class="container">
+                <h4 class="header-text text-center">What people think</h4>
+                <div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
+                  <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item">
+                            <div class="mask">
+                                <img src="img/faces/face-4.jpg">
+                            </div>
+                            <div class="carousel-testimonial-caption">
+                                    <p>Jane Smith</p>
+                                    <h3>"I absolutely love new site!<br>It's truly amazing and looks awesome!"</h3>
+                                    
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <div class="mask">
+                                <img src="img/faces/face-3.jpg">
+                            </div>
+                            <div class="carousel-testimonial-caption">
+                                    <p>John Doe</p>
+                                    <h3>"Great re-design... wish you good luck!"</h3>
+                                   
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="mask">
+                                <img src="img/faces/face-2.jpg">
+                            </div>
+                            <div class="carousel-testimonial-caption">
+                                    <p>Mr. Small Business</p>
+                                    <h3>"Enjoying the new service! Just registered the other day.<br>Thank you for the site design and all it's features."</h3>
+                                   
+                            </div>
+                        </div>
+                    </div>
+                     <ol class="carousel-indicators carousel-indicators-blue">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                </div>
+        
+        </div>
+    </div>
+
+    <div class="section section-no-padding" id="contact-section">
+        <div class="full-background filter-gradient blue" style="background-image:url('img/landing-page-1/bg1.jpg');">
+            <div class="container" style="padding: 25px;">
+				<div class="info" style="padding: 5px;">
+						<h2>Feel free to send feedback,<br>give us suggestions, or just say hello!</h2>
+                <!--******************************  CHANGE   **************************************-->
+                 <div id="desktopForm" class="span8"><!-- block size -->
+                    <form id="commentForm">
+                         <div class="row col-md-9 center form-container">
+                            <div class="control-group" style="padding: 10px;">
+                                  <input type="text" name="Name" id="Name" minlength="2" class="form-control" placeholder="Your Name" maxlength="100">
+                            </div>
+                            <div class="control-group" style="padding: 10px;">
+                                  <input type="email" name="Email" id="Email" class="form-control" placeholder="Email" maxlength="100">
+                            </div>
+                            <div class="control-group" style="padding: 10px;">
+                                  <textarea name="Message" id="Message" minlength="4" rows="4" cols="68" class="form-control" placeholder="Message" maxlength="100"></textarea>
+                            </div> 
+
+                            <div id='autoIp'></div>
+                            <div id='autoIpCountry'></div>
+                            <div id='autoIpRegion'></div>
+                            <div id='autoIpCity'></div>
+                            <div id='autoIpZip'></div>
+                            <div id='autoIpMetro'></div>
+
+                            <div id="sendButton" class="text-right control-group" style="padding: 10px;">
+                                  <input type="submit" id="btn" class="btn send-btn btn-neutral" value="Contact Me" style="display: inline-block;">
+                            </div>
+                        </div>
+
+                        <div id='error'></div>
+                    </form>
+                </div>
+                <!--****************************** END OF CHANGE   **************************************-->
+    		   </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer class="footer">
+            <div class="container">
+                <nav class="pull-left copyright">
+                    Copyright &copy; 2016 <a href="#">Your Company Name</a>
+                </nav>
+                <div class="social-area pull-right">
+                        <a href="https://github.com" class="btn btn-social btn-simple"><i class="fa fa-github-alt fa-fw"></i> <span class="network-name"></span></a>
+                        <a href="https://twitter.com" class="btn btn-social btn-simple"><i class="fa fa-twitter fa-fw"></i> <span class="network-name"></span></a>
+                        <a href="https://www.facebook.com" class="btn btn-social btn-simple"><i class="fa fa-facebook fa-fw"></i> <span class="network-name"></span></a>
+                        <a href="mailto:your_email_name@gmail.com" class="btn btn-social btn-simple"><i class="fa fa-envelope fa-fw"></i> <span class="network-name"></span></a>
+                        <a href="https://plus.google.com" class="btn btn-social btn-simple"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name"></span></a>
+                </div>
+            </div>
+    </footer>
+
+</body>
+
+<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+        var big_image;
+        $().ready(function(){
+
+            responsive = $(window).width();
+            
+            if (responsive >= 768){
+                big_image = $('.parallax-background').find('img');
+                console.log(big_image);
+                $(window).on('scroll',function(){           
+                    parallax();
+                });
+            }
+
+            $('.selector').click(function() {
+                SelectColor(this);
+            });              
+        });
+
+        function SelectColor(btn) {
+            oldColor = $('.filter-gradient').attr('data-color');
+            newColor = $(btn).attr('data-color');
+
+            oldButton = $('#Demo').attr('data-button');
+            newButton = $(btn).attr('data-button');
+           
+            $('.filter-gradient').removeClass(oldColor).addClass(newColor).attr('data-color',newColor);
+
+            $('#Demo').removeClass("btn-"+oldButton).addClass("btn-"+newButton).attr('data-button',newButton);
+
+            $('.carousel-indicators').removeClass("carousel-indicators-"+oldColor).addClass("carousel-indicators-"+newColor);
+
+            $('.card').removeClass("card-"+oldColor).addClass("card-"+newColor);
+            
+            $('.selector').parent().removeClass('active');
+            $(btn).parent().addClass('active');
+        }
+        
+       var parallax = function() {
+            var current_scroll = $(this).scrollTop();
+            
+            oVal = ($(window).scrollTop() / 3); 
+            big_image.css('top',oVal);
+        };
+</script>
+<script src="js/SmoothScroll.js"></script>
+
+<!--************************CHANGED**************************-->
+<script defer>
+// GA will go here
+</script>
+
+<script src="js/h.form.js" type="text/javascript"></script>
+<script src="js/jquery.validate.min.js" type="text/javascript"></script> 
+<script src="js/h.main.js" type="text/javascript"></script>
+
+<script defer>
+// Using main.js
+getIp();
+</script>
+<!--************************End of CHANGED**************************-->
+</html>

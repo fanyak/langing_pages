@@ -1,0 +1,5 @@
+bg.jpg = laptop-768694_1920.jpg, Pixabay
+bg1.jpg = macbook-748858_1280.jpg, Pixabay
+face-2.jpg = 5872328708_2bafc0cb73_b.jpg, Flickr
+face-3.jpg = 1678584.jpg, StockUnlimited
+face-4.jpg = 14387365942_ff542892a4_h.jpg, Flickr

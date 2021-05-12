@@ -1,0 +1,2 @@
+bg.jpg = still from Notepad - 68.mp4, Pixabay
+bg.mp4|.ogg|.webm = Notepad - 68.mp4, Pixabay
