@@ -1,0 +1,7 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#Internal: backup & not-used directory
+x_git-ignore-backup/*
+x_git-ignore-not-used/*

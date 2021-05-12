@@ -1,0 +1,56 @@
+
+<!-- Google Analytics
+================================================== -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71908001-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script>
+// REF = http://stackoverflow.com/questions/27952820/how-can-i-randomly-load-a-single-image-from-my-image-directory-using-jquery
+function getRandomImage()
+{
+    var images = [
+        "background-image: url(../img/mobile1.jpg);",
+        "background-image: url(../img/keep1.jpg);",
+        "background-image: url(../img/keep2.jpg);"
+    ];
+    //return images[Math.floor(Math.random() * 3)];
+    return images[Math.floor(Math.random() * images.length)];
+}
+
+$(document).ready(function(){
+    $("#home").attr('style', getRandomImage());
+});
+</script>
+
+        <div class="container text-center">
+            <a href="../"><img src="../img/logo.png"></a>
+            <div class="content" style="position: relative;">
+              <div class="transbox">
+
+                    <div class="header-text" style="color: #000000;">
+                    <br><p>
+                    <h2>We help your business grow! <br>Find out how.</h2>
+                    <div class="text-center col-md-10" style="padding: 15px; display: inline-block;">
+                      <!-- Color Combos (use most popular) = http://www.colorcombos.com/color-schemes/13/ColorCombo13.html --> 
+                      <a data-toggle="modal" href="info.html" data-target="#modalInfo">
+                        <input type="submit" id="btn" class="btn send-btn" value="I want information." style="background: #FFFF66; color: #000000; font-family: arial; z-index: 10;">
+                      </a>
+                      <a data-toggle="modal" href="questions.html" data-target="#modalQuestions">
+                        <input type="submit" id="btn" class="btn send-btn" value="I have questions." style="background: #FF0000; display: inline-block; color: #000000; font-family: arial; position: relative; z-index: 10;">
+                      </a>
+                    </div>
+                    <br>
+                    <h1><span id="head-title"></span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+

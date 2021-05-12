@@ -1,0 +1,83 @@
+/* your styles go here */
+
+/* http://bootsnipp.com/snippets/featured/detect-viewport-context */
+/* COMMENT OUT for DEPLOYMENT */
+
+/* Will only work with "isMobile" JS code @ index.html */
+body::before {
+  content: "xs";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  background-color: #000;
+  color: #fff;
+}
+@media (min-width : 480px) { body::before { content: "xs"; }}
+@media (min-width : 768px) { body::before { content: "sm"; }}
+@media (min-width : 992px) { body::before { content: "md"; }}
+@media (min-width : 1200px) { body::before { content: "lg"; }}
+
+.btn-custom {
+	background-color: red; 
+	border-color: red;
+}
+
+.btn-custom:hover {
+    background-color: #467fbf; /* blue */
+    color: white;
+}
+
+/*
+form input[type=submit] {
+     background : url("submit.png") no-repeat center center;
+     width : 115px;
+     height :52px;
+     border : none;
+     color : transparent;
+ }
+ */
+
+
+/* simpleStore */
+
+.u-pull-right {
+    float: right
+}
+
+.u-pull-left {
+    float: left
+}
+
+/* REF = https://spin.atomicobject.com/2015/04/07/css-multiple-backgrounds/ */
+.color-overlay {
+   position: absolute;
+   top: 50%;
+   left: 0px;
+   width: 200px;
+   height: 25%;  
+   background-color: #F0F0F0;
+   opacity: 0.8;
+   margin-right: auto;
+   margin-left:auto;
+   max-width: 80%;
+   max-height: 80%;
+}
+
+/* REF = http://www.w3schools.com/css/css_positioning.asp */
+.center {
+    position: absolute;
+    left: 25%;
+    top: 28%;
+    width: 50%;
+    text-align: center;
+}
+
+h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
+  color: OrangeRed;
+  line-height: 2;
+  font-family: Pacifico, sans-serif;
+  font-weight: 900; /* bold = 700 */
+  font-style: oblique;
+  font-stretch: extra-expanded;
+}
